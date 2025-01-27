@@ -1,10 +1,10 @@
 public abstract class CuentaBancaria {
-    protected static double tipoInteres;
+    protected double tipoInteres;
     protected double saldo;
     protected String numeroCuenta;
 
     CuentaBancaria(double tipoInteres, double saldo, String numeroCuenta){
-        this.numeroCuenta.equals(numeroCuenta);
+        this.numeroCuenta = numeroCuenta;
         this.saldo=saldo;
         this.tipoInteres=tipoInteres;
     }

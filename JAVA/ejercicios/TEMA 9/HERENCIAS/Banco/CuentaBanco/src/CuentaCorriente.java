@@ -8,7 +8,7 @@ public class CuentaCorriente extends CuentaBancaria implements Operaciones{
     }
 
     public void mostrarResultados(){
-        System.out.println("Tu cuenta tiene unos interes de "+calcularIntereses()+", dispones de un saldo "+saldo);
+        System.out.printf("Tu cuenta tiene unos interes de %.2f y dispones de un saldo "+saldo+"\n", calcularIntereses());
     }
 
 }
