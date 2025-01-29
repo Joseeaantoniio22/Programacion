@@ -1,4 +1,4 @@
-public class Camion extends Vehiculo {
+public class Camion extends Vehiculo implements Asegurable {
     private int cargaMax;
 
     Camion(double precioMercado, int año, int cargaMax){
@@ -13,5 +13,9 @@ public class Camion extends Vehiculo {
         else{
             System.out.println("El precio del seguro ronda los "+((precioMercado*1.005)+((2025-año)*0.05)));
         }
+    }
+
+    public String mostrarDetalles(){
+        return "El precio de mercado es de "+precioMercado+", es del año "+año+" y su carga máxima es de "+cargaMax;
     }
 }
