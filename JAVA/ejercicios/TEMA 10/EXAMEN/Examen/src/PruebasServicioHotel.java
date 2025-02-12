@@ -44,7 +44,7 @@ public class PruebasServicioHotel {
     /**
      * En esta función lo que realizo es el listado del hotel junto a sus servicios
      */
-    public static void listarHotel() {
+    public void listarHotel(HashMap<String, ArrayList<String>> misServicios) {
         System.out.println("Dime que hotel quieres consultar");
         String hotel = System.console().readLine();
         minuscula(hotel);

@@ -5,6 +5,8 @@
  */
 public class ServiciosHoteles {
     public static void main(String[] args) {
+        PruebasServicioHotel misServicios = new PruebasServicioHotel();
+
         int valor;
         do {
             System.out.println("Dime que servicio deseas realizar");
@@ -16,7 +18,7 @@ public class ServiciosHoteles {
             valor = Integer.parseInt(System.console().readLine());
             switch (valor) {
                 case 1:
-                    PruebasServicioHotel.listarHotel();
+                    misServicios.listarHotel(null);
                     break;
                 case 2:
                     PruebasServicioHotel.crearServicios();
