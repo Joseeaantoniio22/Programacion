@@ -14,10 +14,32 @@ public class App {
         ResultSet resultado = null;
 
         try {
+            //ESTABLECE LA CONEXION CON LA BD
             conexion = DriverManager.getConnection(url, usuario, contraseña);
             sentencia = conexion.createStatement();
+            //CONSULTA SQL
+            String query = "SELECT * FROM socio";
+            resultado = sentencia.executeQuery(query);
+            //IMPRIMIMO LOS RESULTADOS
+            while (resultado.next()) {
+                int soicioId= resultado.getInt("socioID");
+                String nombre = resultado.getString("nombre");
+                int estatura = resultado.getInt("estatura");
+                int edad = resultado.getInt("edad");
+                String localidad = resultado.getString("localidad");
+
+                System.out.println("Id socio: "+soicioId+", nombre: "+nombre+", estatura: "+estatura+", edad: "+edad+", localidad: "+localidad);
+            }
         } catch (Exception e) {
-            // TODO: handle exception
+            System.out.println(e.getMessage());
+        }finally{
+            try {
+                if (resultado!=null) resultado.close();
+                if(sentencia!=null) sentencia.close();
+                if(conexion!=null) conexion.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 }
