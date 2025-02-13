@@ -1,10 +1,12 @@
+import ConncetioPool.ConnectionPool;
+
 public class DreamTeam {
     private static String URL = "jdbc:mariadb://3306/baloncesto";
     private static String USUARIO = "root";
     private static String CONTRASEÑA = "";
     public static void main(String[] args) {
-        Connection miConnection = new Connection(URL, USUARIO, CONTRASEÑA);
-        
+        ConnectionPool miConnection = new ConnectionPool(URL, USUARIO, CONTRASEÑA);
+
     }
 
     public static int leerOpcion(){

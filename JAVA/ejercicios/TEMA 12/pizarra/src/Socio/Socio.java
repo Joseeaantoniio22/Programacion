@@ -1,3 +1,4 @@
+package Socio;
 public class Socio{
     private int edad;
     private int id;

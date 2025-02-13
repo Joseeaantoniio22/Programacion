@@ -1,5 +1,8 @@
+package Socio;
 import java.sql.Connection;
 import java.util.ArrayList;
+
+import CRUD.CRUD;
 
 public class GestorSocios implements CRUD{
     private Connection conexion;
