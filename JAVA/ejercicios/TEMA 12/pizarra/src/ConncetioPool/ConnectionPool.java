@@ -1,11 +1,12 @@
 package ConncetioPool;
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 
 public class ConnectionPool {
-    private ArrayList<ConnectionPool> connections;
+    private ArrayList<Connection> connections =  new ArrayList<Connection>();;
     private String url;
     private String usuario;
     private String contraseña;
@@ -20,21 +21,27 @@ public class ConnectionPool {
         this.contraseña = contraseña;
     }
 
-    public ArrayList<ConnectionPool> getConnections() {
-        return connections;
+    public Connection getConnections() {
+        Connection conn = null;
+        try {
+            conn = DriverManager.getConnection(url, usuario, contraseña);
+            if (conn!=null) {
+                this.connections.add(conn);
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return conn;
     }
 
     public void closeAll(){
-        for (int i = 0; i < connections.size(); i++) {
-            while (connections!=null) {
-                try {
-                    conexion.close();
-                    sentecia.close();
-                    resultado.close();
-                } catch (Exception e) {
-                    // TODO: handle exception
-                    System.out.println(e.getMessage());
+        for (Connection conn : this.connections) {
+            try {
+                if (conn!=null) {
+                    conn.close();
                 }
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
             }
         }
     }
