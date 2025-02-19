@@ -98,7 +98,7 @@ public class DreamTeam {
     }
 
     public static void modificarSocio() {
-        System.out.println("Dime el nombre de la persona que quieres añadir");
+        System.out.println("Dime el nombre de la persona que deseas modificar");
         String nombre = System.console().readLine();
         System.out.println("Dime la edad de la persona");
         int edad = Integer.parseInt(System.console().readLine());
@@ -109,7 +109,7 @@ public class DreamTeam {
         System.out.println("Dime el identificador de la persona");
         int socioID = Integer.parseInt(System.console().readLine());
         try {
-            miGestorSocio.delete(new Socio(nombre, localidad, edad, estatura, socioID));
+            miGestorSocio.update(new Socio(nombre, localidad, edad, estatura, socioID));
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }

@@ -74,7 +74,7 @@ public class GestorSocio implements CRUD{
             if (effectRows==0) {
                 throw new SQLException();
             }else{
-                System.out.println("Socio creado correctamente");
+                System.out.println("Socio borrado correctamente");
                 return true;
             }
         } catch (Exception e) {
@@ -118,7 +118,7 @@ public class GestorSocio implements CRUD{
             throw new SQLException();
         }else{
             ArrayList<Socio> results = new ArrayList<>();
-            String sqlQuery = "SELECT * FROM socio WHERE "+columna+" = ?";
+            String sqlQuery = "SELECT * FROM socio WHERE "+columna+" = '?'";
             PreparedStatement stmt = this.connection.prepareStatement(sqlQuery);
             stmt.setInt(1, valor);
             ResultSet querySet = stmt.executeQuery();
@@ -202,7 +202,7 @@ public class GestorSocio implements CRUD{
         String nombre = socio.getNombre();
         String localidad = socio.getLocalidad();
 
-        String sqlQuery = "UPDATE socio SET nombre = ?, estatura = ?, edad = ?, localidad = ? WHERE id = ?";
+        String sqlQuery = "UPDATE socio SET nombre = ?, estatura = ?, edad = ?, localidad = ? WHERE socioID = ?";
 
         try {
             PreparedStatement stmt = this.connection.prepareStatement(sqlQuery);
