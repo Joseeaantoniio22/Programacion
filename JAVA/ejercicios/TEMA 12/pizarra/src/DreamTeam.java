@@ -70,7 +70,11 @@ public class DreamTeam {
         String localidad = System.console().readLine();
         System.out.println("Y por último dime el identificador de la persona");
         int id = Integer.parseInt(System.console().readLine());
-        Socio miSocio = new Socio(edad, id, nombre, localidad, estatura);
+        try {
+            if (miGestor.update(new Socio(edad, id, nombre, localidad, estatura))) System.out.println("Socio modificado correctamente.");         
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     public static void listarSocios(){
