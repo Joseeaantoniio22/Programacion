@@ -84,7 +84,7 @@ public class GestorSocio implements CRUD{
 
     @Override
     public ArrayList query(String columna, String valor) throws SQLException {
-        List<String> validColums = Arrays.asList("columna", "valor");
+        List<String> validColums = Arrays.asList("nombre", "localidad");
         if (!validColums.contains(columna)) {
             throw new SQLException();
         }else{
@@ -96,7 +96,7 @@ public class GestorSocio implements CRUD{
 
                 ResultSet querySet = stmt.executeQuery();
 
-                while (querySet.next()) {
+                while(querySet.next()) {
                     int socioID = querySet.getInt("socioID");
                     int estatura = querySet.getInt("estatura");
                     int edad = querySet.getInt("edad");
@@ -113,12 +113,12 @@ public class GestorSocio implements CRUD{
 
     @Override
     public ArrayList query(String columna, int valor) throws SQLException {
-        List<String> validColums = Arrays.asList("columna", "valor");
+        List<String> validColums = Arrays.asList("socioID", "edad", "estatura");
         if (!validColums.contains(columna)) {
             throw new SQLException();
         }else{
             ArrayList<Socio> results = new ArrayList<>();
-            String sqlQuery = "SELECT * FROM socio WHERE "+columna+" = '?'";
+            String sqlQuery = "SELECT * FROM socio WHERE "+columna+" = ?";
             PreparedStatement stmt = this.connection.prepareStatement(sqlQuery);
             stmt.setInt(1, valor);
             ResultSet querySet = stmt.executeQuery();

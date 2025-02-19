@@ -64,6 +64,12 @@ public class Socio {
         this.id = id;
     }
 
+    @Override
+    public String toString() {
+        return "Socio [nombre=" + nombre + ", localidad=" + localidad + ", edad=" + edad + ", estatura=" + estatura
+                + ", id=" + id + "]\n";
+    }
+
     
     
     
