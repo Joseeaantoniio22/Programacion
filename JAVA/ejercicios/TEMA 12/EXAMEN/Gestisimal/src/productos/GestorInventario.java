@@ -1,15 +1,19 @@
 package productos;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import crud.CRUD;
 
 public class GestorInventario implements CRUD<Producto>{
+    private HashMap<String, ArrayList<String>> glosario;
     Connection conn;
     public GestorInventario(Connection conn){
         this.conn = conn;
@@ -120,4 +124,39 @@ public class GestorInventario implements CRUD<Producto>{
         }
     }
 
+    @Override
+    public String[] deserializar(String líneaFichero) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public boolean exportar(String nombreFichero) {
+        return false;
+    }
+
+    @Override
+    public boolean importar(String nombreFichero) {
+        try {
+            BufferedWriter bw = new BufferedWriter(new FileWriter(nombreFichero));
+            try (Statement stmt = this.conn.createStatement()) {
+                
+                bw.close();
+                return true;
+            }catch (Exception e) {
+            System.out.println(e.getMessage());
+            }
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
+        return false;
+    }
+
+    @Override
+    public String serializar(String palabraInglés, ArrayList<String> significados) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    
 }

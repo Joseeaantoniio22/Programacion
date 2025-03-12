@@ -167,8 +167,8 @@ public class GestorDiccionario implements Serializador, ManejadorArchivos {
       BufferedWriter bw = new BufferedWriter(new FileWriter(ficheroOriginal, true));
       while ((linea=br.readLine())!=null) {
         String deserializar[] = deserializar(linea);
-        linea=deserializar[i];
         for (int i = 0; i < deserializar.length; i++) {
+          linea=deserializar[i];
           linea=embellece(br.readLine());
           bw.write(linea);
         }

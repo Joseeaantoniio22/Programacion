@@ -50,4 +50,33 @@ public interface CRUD<T> {
      * @throws SQLException
      */
     public boolean delete(long id) throws SQLException;
+
+    /** 
+    * Serializa los datos de una entrada del diccionario en una cadena: palabraInglés;significadoEspañol1;significadoEspañol2 
+    * @param palabraInglés Palabra en inglés
+    * @param significados Lista con las acepciones en castellano asociadas a la palabra inglesa
+    * @return Cadena de caracteres conteniendo todos los datos de esa entrada del diccionario
+    */
+    public String serializar(String palabraInglés, ArrayList<String> significados);
+
+    /** 
+    * Deserializa los datos de una entrada del diccionario devolviendo un array de cadenas 
+    * @param líneaFichero Datos en el fichero de una entrada del diccionario
+    * @return Array de Strings con la palabra en inglés en primera posición seguida de los significados en español
+    */
+    public String[] deserializar(String líneaFichero);
+
+    /**
+   * Añade datos al diccionario desde un fichero
+   * @param nombreFichero
+   * @return Verdadero si la importación se realizó con éxito
+   */
+    public boolean importar(String nombreFichero);
+
+    /**
+   * Exporta los datos actuales del diccionario a un fichero
+   * @param nombreFichero
+   * @return Verdadero si la exportación se realizó con éxito
+   */
+    public boolean exportar(String nombreFichero);
 }
