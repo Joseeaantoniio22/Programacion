@@ -9,21 +9,21 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Paso de cadena</title>
+<title>Animales</title>
 </head>
 <body>
-<% request.setCharacterEncoding("UTF-8"); %>
-<% 
-    Double primerNumero = Double.valueOf(request.getParameter("x"));
-    Double segundoNumero = Double.valueOf(request.getParameter("y"));
-    for(int i=0;i<3;i++){
-    out.println(primerNumero+i);
-    }
-%><br>
-    <% for(int j=0;j<3;j++){
-    out.println(segundoNumero+"+"+j+"="+(segundoNumero+j));
-    %><br><%
-    }
-    ;%>
+<%
+String nombreAnimal = request.getParameter("animal");
+String nombreImagen;
+if (nombreAnimal.equals("Gato")) {
+nombreImagen = "gato.jpg";
+} else {
+nombreImagen = "caracol.jpg";
+}
+int veces = Integer.parseInt(request.getParameter("numero"));
+for (int i = 0; i < veces; i++) {
+out.print("<img src=\"" + nombreImagen +"\" width=\"20%\">");
+}
+%>
 </body>
 </html>

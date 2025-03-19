@@ -95,7 +95,7 @@ public class GestorSocio implements CRUD{
                 stmt.setString(1, valor);
 
                 ResultSet querySet = stmt.executeQuery();
-
+                
                 while(querySet.next()) {
                     int socioID = querySet.getInt("socioID");
                     int estatura = querySet.getInt("estatura");
