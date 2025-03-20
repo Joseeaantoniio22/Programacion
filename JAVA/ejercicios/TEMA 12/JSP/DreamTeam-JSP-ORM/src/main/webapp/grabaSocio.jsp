@@ -30,8 +30,17 @@
             request.setCharacterEncoding("UTF-8");
             // TODO: Crear socio a través del gestor (try-catch) y comprobar resultado (si verdadero, mostrar mensaje de éxito)
             try {
-            
-            } catch  {
+                int socioID = Integer.valueOf(request.getParameter("socioID"));
+                String nombre = request.getParameter("nombre");
+                String localidad = request.getParameter("localidad");
+                int estatura = Integer.valueOf(request.getParameter("estatura"));
+                int edad = Integer.valueOf(request.getParameter("edad"));
+                Socio socio = new Socio(socioID, nombre, estatura, edad, localidad);
+                if(miGestor.create(socio)){
+                    %><div><%out.println("Socio creado correctamente");%></div><%
+                }
+            } catch(Exception e){
+             e.getMessage();
             }
             //Cerrar las conexiones del pool  
             conex.closeAll();

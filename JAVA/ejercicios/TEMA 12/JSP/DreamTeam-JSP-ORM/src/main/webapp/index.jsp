@@ -36,7 +36,7 @@
                     ArrayList<Socio> miArray = null;
                     //Realizar consulta a través del gestor (try-catch) y comprobar resultado (error si la lista está vacía)
                     try {
-                        miArray = miGestorSocio.requestAll("nombre ASC");
+                        miArray = miGestorSocio.requestAll("socioID ASC");
                         if (miArray.isEmpty()) {
                             throw new Exception("Esta base de datos no tiene socios");
                         } else {
@@ -52,7 +52,7 @@
                             <td><input type="text" name="localidad" size="20"></td>
                             <td><button type="submit" value="Añadir" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Añadir</button></td><td></td></tr>           
                     </form>
-                    <%                        // TODO: Si la lista no está vacía, recorrerla e imprimir sus elementos en filas de la tabla
+                    <%                        //Si la lista no está vacía, recorrerla e imprimir sus elementos en filas de la tabla
                         for (Socio socios : miArray) {
                             int socioID = socios.getId();
                             String nombre = socios.getNombre();

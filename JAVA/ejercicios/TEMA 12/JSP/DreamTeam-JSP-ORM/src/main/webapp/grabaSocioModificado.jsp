@@ -30,7 +30,11 @@
             //Establecer la codificación de caracteres de la petición a UTF-8
             request.setCharacterEncoding("UTF-8");
             // TODO: Modificar socio a través del gestor (try-catch) y comprobar resultado (si verdadero, mostrar mensaje de éxito)
-            
+            try{
+                
+            }catch(Exception e){
+                e.getMessage();
+            }
             // TODO: Cerrar las conexiones del pool  
             
         %>
