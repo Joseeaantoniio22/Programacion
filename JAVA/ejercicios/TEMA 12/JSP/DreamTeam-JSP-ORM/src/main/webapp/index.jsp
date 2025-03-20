@@ -52,17 +52,17 @@
                             <td><input type="text" name="localidad" size="20"></td>
                             <td><button type="submit" value="Añadir" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Añadir</button></td><td></td></tr>           
                     </form>
-                    <%                        //Si la lista no está vacía, recorrerla e imprimir sus elementos en filas de la tabla
+                    <%//Si la lista no está vacía, recorrerla e imprimir sus elementos en filas de la tabla
                         for (Socio socios : miArray) {
                             int socioID = socios.getId();
                             String nombre = socios.getNombre();
                             int estatura = socios.getEstatura();
                             int edad = socios.getEdad();
                             String localidad = socios.getLocalidad();
-                            out.println("<tr><td>"+socioID+"</td><td>"+nombre+"</td><td>"+estatura+"</td><td>"+edad+"</td><td>"+localidad+"</td>");
+                            out.println("<tr><td>" + socioID + "</td><td>" + nombre + "</td><td>" + estatura + "</td><td>" + edad + "</td><td>" + localidad + "</td>");
                     %>
                     <td>
-                        <!-- TODO: Introducir los datos de cada socio al formulario asociado al botón modificar.-->
+                        <!-- Introducir los datos de cada socio al formulario asociado al botón modificar.-->
                         <form method="get" action="modificaSocio.jsp">
                             <input type="hidden" name="socioID" value="<%=socioID%>">
                             <input type="hidden" name="nombre" value="<%= nombre%>">
@@ -79,12 +79,11 @@
                             <button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span> Eliminar</button>
                         </form>
                     </td></tr>
-                    <%
-                                //Cerrar bucle, cerrar else, bloque catch, cerrar conexiones del pool
+                    <%//Cerrar bucle, cerrar else, bloque catch, cerrar conexiones del pool
                             }
                         }
                     } catch (Exception e) {
-                        %><div><%
+                    %><div><%
                             out.println(e.getMessage());%></div><%
                             } finally {
                                 conex.closeAll();

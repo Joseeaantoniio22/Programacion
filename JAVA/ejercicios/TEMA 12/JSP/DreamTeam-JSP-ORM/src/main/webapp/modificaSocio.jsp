@@ -12,7 +12,7 @@
         <title>DreamTeam - JSP - ORM</title>
     </head>
     <body>
-        <% request.setCharacterEncoding("UTF-8"); %>
+        <% request.setCharacterEncoding("UTF-8");%>
         <div class="container">
             <br><br>
             <div class="panel panel-info">
@@ -20,17 +20,17 @@
                 <form method="get" action="grabaSocioModificado.jsp">
                     <br>
                     <div class="form-group"> 
-                        <label>&nbsp;&nbsp;Nº de socio:&nbsp;</label><input type="text" size="5" name="socioID" value="<%=  %>" readonly>
+                        <label>&nbsp;&nbsp;Nº de socio:&nbsp;</label><input type="text" size="5" name="socioID" value="<%= Integer.valueOf(request.getParameter("socioID"))%>" readonly>
                     </div>
                     <div class="form-group">
-                        <label>&nbsp;&nbsp;Nombre:&nbsp;</label><input type="text" size="35" name="nombre" value="<%= TODO %>">
+                        <label>&nbsp;&nbsp;Nombre:&nbsp;</label><input type="text" size="35" name="nombre" value="<%= request.getParameter("nombre")%>">
                     </div>
                     <div class="form-group">
-                        <label>&nbsp;&nbsp;Estatura (en cm):&nbsp;</label><input type="text" size="5" name="estatura" value="<%= TODO %>">
-                        <label>&nbsp;&nbsp;Edad:&nbsp;</label><input type="text" size="5" name="edad" value="<%= TODO %>">
+                        <label>&nbsp;&nbsp;Estatura (en cm):&nbsp;</label><input type="text" size="5" name="estatura" value="<%= request.getParameter("estatura")%>">
+                        <label>&nbsp;&nbsp;Edad:&nbsp;</label><input type="text" size="5" name="edad" value="<%= Integer.valueOf(request.getParameter("edad"))%>">
                     </div>
                     <div class="form-group">
-                        <label>&nbsp;&nbsp;Localidad:&nbsp;</label><input type="text" name="localidad" size="20" value="<%= TODO %>">
+                        <label>&nbsp;&nbsp;Localidad:&nbsp;</label><input type="text" name="localidad" size="20" value="<%= request.getParameter("localidad")%>">
                     </div>
                     <hr>
                     &nbsp;&nbsp;<a href="index.jsp" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span>Cancelar</a>

@@ -12,7 +12,7 @@
     </head>
     <body>
         <%
-            //Configuración de la conexión a la base de datos
+            //Configuración de la conexión a la base de datos   º
             String url = "jdbc:mariadb://localhost:3306/baloncesto";
             String user = "root";
             String password = "";
@@ -21,14 +21,19 @@
             GestorSocios miGestorSocio = new GestorSocios(conex.getConnection());
             //Establecer la codificación de caracteres de la petición a UTF-8
             request.setCharacterEncoding("UTF-8");
-            // TODO: Realizar borrado a través del gestor (try-catch) y comprobar resultado (si verdadero, mostrar mensaje de éxito)
-            try{
-                
-            }catch(Exception e){
-                e.getMessage();
-            }
-            // TODO: Cerrar las conexiones del pool                  
-            
+            //Realizar borrado a través del gestor (try-catch) y comprobar resultado (si verdadero, mostrar mensaje de éxito)
+            try {
+                int socioID = Integer.valueOf(request.getParameter("socioID"));
+                if (miGestorSocio.delete(socioID)) {
+        %><div><%out.println("¡Usuario borrado correctamente!");%></div><%
+                            }
+                        } catch (Exception e) {
+                            e.getMessage();
+                        } finally {
+                            conex.closeAll();
+                        }
+                        //Cerrar las conexiones del pool                  
+
         %>
         <script>document.location = "index.jsp"</script> 
     </body>
