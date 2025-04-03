@@ -33,7 +33,7 @@
             }catch(Exception e){
                 e.getMessage();
             }
-            //Cerrar las conexiones del pool                  
+            //Cerrar las conexiones del pool              
             conex.closeAll();
         %>
         <script>document.location = "index.jsp"</script> 
